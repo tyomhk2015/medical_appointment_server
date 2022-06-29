@@ -10,7 +10,8 @@ const app = express();
 const httpServer = http.createServer(app);
 const socketIOserver = new Server(httpServer, {
   cors: {
-    origins: "http://localhost:3000/",
+    // origins: "http://localhost:3000/",
+    origins: "https://medical-appointment.vercel.app/",
     methods: ["GET", "POST"],
   }
 });
