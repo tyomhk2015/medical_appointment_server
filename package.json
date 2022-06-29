@@ -1,0 +1,25 @@
+{
+  "name": "medical_appointment_server",
+  "version": "1.0.0",
+  "description": "Websocket server for medical_appointment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyomhk2015/medical_appointment_server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tyomhk2015/medical_appointment_server/issues"
+  },
+  "homepage": "https://github.com/tyomhk2015/medical_appointment_server#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "socket.io": "^4.5.1"
+  }
+}
