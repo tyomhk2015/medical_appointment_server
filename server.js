@@ -42,6 +42,15 @@ socketIOserver.on("connection", (socket) => {
     socketIOserver.sockets.emit("roomUpdate", showPublicRooms());
   });
 
+  // Leave the room
+  socket.on("leave", (roomName, nickname) => {
+    const sendingPayload = `【SYSTEM】 ${socket.nickname} left the chat.`;
+    socket.to(roomName).emit("leave", sendingPayload);
+    socket.leave(roomName);
+    socketIOserver.sockets.emit("roomUpdate", showPublicRooms());
+  });
+
+  // Disconnect from the server
   socket.on("disconnect", () => {
     socket.disconnect(true);
     socketIOserver.sockets.emit("roomUpdate", showPublicRooms());
@@ -82,7 +91,6 @@ const showPublicRooms = () => {
   
   const publicRooms = [];
   rooms.forEach((value, key) => {
-    console.log(adapter);
     if (sids.get(key) === undefined) {
       const publicRoom = {roomName: key, participants: value.size}
       publicRooms.push(publicRoom);
